@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@whiskeysockets/baileys": "^6.6.0",
-    "qrcode": "^1.5.1"
+    "qrcode": "^1.5.1",
+    "crypto-browserify": "^3.12.0"
   }
 }
