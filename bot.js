@@ -1,4 +1,4 @@
-const crypto = require('crypto'); // ⬅️ Add this line at the top
+const crypto = require('crypto') ||  require('crypto-browserify'); // ⬅️ Add this line at the top
 const { default: makeWASocket, useMultiFileAuthState, DisconnectReason } = require('@whiskeysockets/baileys')
 const qrcode = require('qrcode')
 const fs = require('fs')
