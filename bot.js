@@ -1,4 +1,5 @@
 const crypto = require('crypto') ||  require('crypto-browserify'); // ⬅️ Add this line at the top
+global.crypto = crypto;
 console.log('✅ crypto loaded:', typeof crypto.createHash === 'function');
 const { default: makeWASocket, useMultiFileAuthState, DisconnectReason } = require('@whiskeysockets/baileys')
 const qrcode = require('qrcode')
