@@ -2,6 +2,7 @@
   "name": "whatsapp-bot",
   "version": "1.0.0",
   "description": "Simple WhatsApp bot using Baileys",
+  "type": "commonjs",
   "main": "bot.js",
   "scripts": {
     "start": "node bot.js"
