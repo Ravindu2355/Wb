@@ -68,7 +68,7 @@ http.createServer(async (req, res) => {
         if (!sock) throw 'Bot not connected';
 
         const stream = await downloadFile(fileUrl);
-        const ext = path.extname(fileUrl.split('?')[0]) || '';
+        const ext = path.extname(fileUrl.split('?')[0]) || '.mp4';
         const fileType = mimeType || lookup(ext) || 'application/octet-stream';
 
         await sock.sendMessage(to, {
@@ -95,6 +95,18 @@ http.createServer(async (req, res) => {
 
 // Download file stream
 function downloadFile(fileUrl) {
+  return new Promise((resolve, reject) => {
+    const lib = fileUrl.startsWith('https') ? https : httpLib;
+    lib.get(fileUrl, (response) => {
+      if (response.statusCode !== 200) return reject('File not reachable');
+      const data = [];
+
+      response.on('data', (chunk) => data.push(chunk));
+      response.on('end', () => resolve(Buffer.concat(data)));
+    }).on('error', reject);
+  });
+}
+function downloadFilenotw(fileUrl) {
   return new Promise((resolve, reject) => {
     const lib = fileUrl.startsWith('https') ? https : httpLib;
     lib.get(fileUrl, (response) => {
