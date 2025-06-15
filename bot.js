@@ -20,7 +20,7 @@ http.createServer((req, res) => {
     }
   } else {
     res.writeHead(200)
-    res.end('Go to /qr to scan QR code')
+    res.end('Whatsapp Bot interface index!')
   }
 }).listen(8000, () => console.log('🔗 Visit: http://localhost:8000/qr'))
 
