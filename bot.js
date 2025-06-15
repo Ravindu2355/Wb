@@ -22,7 +22,7 @@ http.createServer((req, res) => {
     res.writeHead(200)
     res.end('Go to /qr to scan QR code')
   }
-}).listen(3000, () => console.log('🔗 Visit: http://localhost:3000/qr'))
+}).listen(8000, () => console.log('🔗 Visit: http://localhost:8000/qr'))
 
 async function startBot() {
   const { state, saveCreds } = await useMultiFileAuthState('auth')
